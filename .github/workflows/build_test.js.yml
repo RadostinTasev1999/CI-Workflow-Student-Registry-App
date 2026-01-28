@@ -16,23 +16,15 @@ jobs:
 
     strategy:
       matrix:
-        node-version: 24.x
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+        node-version: [24.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases
     steps:
-    
     - uses: actions/checkout@v4
-    
-    - name: Use Node.js 24
+    - name: Setup node
       uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          
-    - name: install dependencies
+      with:
+        node-version: 24 
+    
     - run: npm install
-    
-    - name: start application
     - run: npm start
-    
-    - name: run tests
     - run: npm test
